@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yabi-T Services LLC | Handyman, Electrical, Plumbing &amp; Smart Home — Washington DC</title>
+<meta name="description" content="Yabi-T Services LLC — licensed home service pros for TV mounting, appliance repair, electrical, plumbing, smart home install, and furniture assembly across Washington DC, Maryland &amp; Virginia.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#12233B;
+    --navy:#193A5C;
+    --navy-deep:#0D1F35;
+    --paper:#F2F5F3;
+    --card:#FFFFFF;
+    --brass:#C08A34;
+    --brass-light:#E0AE5C;
+    --brick:#B1432A;
+    --line:#DEE5E2;
+    --text-soft:#5B6B72;
+    --text-soft-inv:#B9C7D6;
+    --radius:14px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'Space Grotesk', monospace;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.72rem;
+    font-weight:600;
+    color:var(--brass);
+  }
+  p{ line-height:1.65; color:var(--text-soft); margin:0; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
+  section{ position:relative; }
+
+  ::selection{ background:var(--brass-light); color:var(--navy-deep); }
+
+  /* ---------- reveal animation ---------- */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  .reveal-delay-1{ transition-delay:.08s; }
+  .reveal-delay-2{ transition-delay:.16s; }
+  .reveal-delay-3{ transition-delay:.24s; }
+  .reveal-delay-4{ transition-delay:.32s; }
+  .reveal-delay-5{ transition-delay:.4s; }
+  .reveal-delay-6{ transition-delay:.48s; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    *{ animation:none !important; }
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:18px 0;
+    transition:padding .35s ease, background .35s ease, box-shadow .35s ease;
+  }
+  header.scrolled{
+    padding:10px 0;
+    background:rgba(242,245,243,.86);
+    backdrop-filter:blur(14px);
+    box-shadow:0 1px 0 var(--line);
+  }
+  nav{ display:flex; align-items:center; justify-content:space-between; }
+  .brand{ display:flex; align-items:center; gap:11px; }
+  .brand-mark{ width:38px; height:38px; flex-shrink:0; }
+  .brand-text{ display:flex; flex-direction:column; line-height:1; }
+  .brand-text .name{ font-family:'Fraunces', serif; font-weight:600; font-size:1.18rem; color:var(--ink); }
+  .brand-text .sub{ font-family:'Space Grotesk', monospace; font-size:.6rem; letter-spacing:.16em; color:var(--brass); text-transform:uppercase; margin-top:2px; }
+  .nav-links{ display:flex; gap:34px; align-items:center; }
+  .nav-links a{ font-size:.92rem; font-weight:500; color:var(--ink); position:relative; padding:4px 0; }
+  .nav-links a::after{ content:''; position:absolute; left:0; bottom:0; height:2px; width:0; background:var(--brass); transition:width .3s ease; }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--navy); color:#fff !important;
+    padding:11px 20px; border-radius:100px;
+    font-weight:600; font-size:.88rem;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .nav-cta:hover{ background:var(--brick); transform:translateY(-1px); }
+  .nav-mobile-toggle{ display:none; }
+
+  @media (max-width:880px){
+    .nav-links{ display:none; }
+    .nav-mobile-toggle{ display:block; background:none; border:1px solid var(--line); border-radius:10px; padding:9px 12px; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse at 18% -10%, rgba(224,174,92,.14), transparent 55%),
+      linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, var(--navy) 100%);
+    padding:168px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size:42px 42px;
+    mask-image:radial-gradient(ellipse at 50% 30%, black 10%, transparent 72%);
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;
+  }
+  @media (max-width:960px){ .hero-inner{ grid-template-columns:1fr; } }
+
+  .hero-eyebrow{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:'Space Grotesk', monospace; text-transform:uppercase;
+    letter-spacing:.16em; font-size:.72rem; font-weight:600; color:var(--brass-light);
+    border:1px solid rgba(224,174,92,.35); padding:7px 14px; border-radius:100px;
+    margin-bottom:22px;
+  }
+  .hero-eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--brass-light); animation:pulse 2s infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
+
+  .hero h1{
+    color:#fff; font-size:clamp(2.5rem, 4.6vw, 3.9rem); font-weight:600; line-height:1.06;
+  }
+  .hero h1 em{ font-style:italic; color:var(--brass-light); font-weight:500; }
+  .hero p.lede{ color:var(--text-soft-inv); font-size:1.12rem; max-width:520px; margin-top:22px; }
+
+  .hero-actions{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:100px; font-weight:600; font-size:.95rem;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    cursor:pointer; border:none;
+  }
+  .btn-primary{ background:var(--brass); color:var(--navy-deep); }
+  .btn-primary:hover{ background:var(--brass-light); transform:translateY(-2px); box-shadow:0 14px 30px -12px rgba(224,174,92,.55); }
+  .btn-ghost{ background:transparent; color:#fff; border:1px solid rgba(255,255,255,.28); }
+  .btn-ghost:hover{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.5); }
+
+  .hero-badges{ display:flex; gap:26px; margin-top:52px; flex-wrap:wrap; }
+  .hero-badge{ display:flex; align-items:center; gap:10px; }
+  .hero-badge svg{ width:20px; height:20px; flex-shrink:0; color:var(--brass-light); }
+  .hero-badge span{ font-size:.82rem; color:var(--text-soft-inv); font-weight:500; }
+
+  /* blueprint diagram */
+  .diagram-wrap{ position:relative; }
+  .diagram-card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:20px;
+    padding:22px;
+    backdrop-filter:blur(6px);
+  }
+  .diagram-label{ font-family:'Space Grotesk', monospace; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-soft-inv); display:flex; justify-content:space-between; margin-bottom:10px; }
+  .diagram-label b{ color:var(--brass-light); font-weight:600; }
+
+  .blueprint-line{ stroke-dasharray:600; stroke-dashoffset:600; animation:draw 2.6s ease forwards; }
+  .blueprint-line.d1{ animation-delay:.2s; }
+  .blueprint-line.d2{ animation-delay:.7s; }
+  .blueprint-line.d3{ animation-delay:1.2s; }
+  .blueprint-line.d4{ animation-delay:1.7s; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .blueprint-dot{ opacity:0; animation:fadein .6s ease forwards; }
+  .bp-dot1{ animation-delay:1.4s; } .bp-dot2{ animation-delay:1.9s; } .bp-dot3{ animation-delay:2.4s; } .bp-dot4{ animation-delay:2.9s; }
+  @keyframes fadein{ to{ opacity:1; } }
+  .pulse-ring{ animation:ring 2.4s ease-in-out infinite; transform-origin:center; }
+  @keyframes ring{ 0%{ opacity:.9; transform:scale(1);} 70%{opacity:0; transform:scale(2.1);} 100%{opacity:0;} }
+
+  /* ---------- trust strip ---------- */
+  .trust-strip{ background:var(--card); border-bottom:1px solid var(--line); padding:26px 0; }
+  .trust-strip .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:18px 34px; }
+  .trust-item{ display:flex; align-items:center; gap:10px; font-size:.86rem; font-weight:600; color:var(--ink); }
+  .trust-item svg{ width:19px; height:19px; color:var(--brass); flex-shrink:0; }
+
+  /* ---------- section headers ---------- */
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(1.9rem,3vw,2.6rem); font-weight:600; margin-top:12px; line-height:1.14; }
+  .section-head p{ margin-top:16px; font-size:1.03rem; }
+  .center{ text-align:center; margin-left:auto; margin-right:auto; }
+
+  /* ---------- services ---------- */
+  .services{ padding:110px 0 90px; }
+  .service-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
+  @media (max-width:820px){ .service-grid{ grid-template-columns:1fr; } }
+
+  .service-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, border-color .4s ease;
+  }
+  .service-card:hover{ transform:translateY(-6px); box-shadow:0 26px 50px -22px rgba(18,35,59,.28); border-color:transparent; }
+  .service-photo{ height:190px; overflow:hidden; position:relative; }
+  .service-photo img{ width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.2,.8,.2,1); }
+  .service-card:hover .service-photo img{ transform:scale(1.08); }
+  .service-photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(13,31,53,.68)); }
+  .service-tag{
+    position:absolute; left:16px; bottom:14px; z-index:2;
+    display:flex; align-items:center; gap:9px;
+  }
+  .service-tag .icon-badge{
+    width:38px; height:38px; border-radius:10px;
+    background:var(--brass); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 18px -6px rgba(0,0,0,.4);
+  }
+  .service-tag .icon-badge svg{ width:20px; height:20px; color:var(--navy-deep); }
+  .service-tag .service-title{ color:#fff; font-family:'Fraunces',serif; font-weight:600; font-size:1.18rem; }
+
+  .service-body{ padding:20px 22px 24px; }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .pill{
+    font-size:.78rem; font-weight:500; color:var(--navy);
+    background:var(--paper); border:1px solid var(--line);
+    padding:6px 12px; border-radius:100px;
+    transition:background .25s ease, border-color .25s ease, transform .2s ease;
+  }
+  .service-card:hover .pill{ border-color:#e6d4b6; }
+  .pill:hover{ background:#FBF0DD; transform:translateY(-1px); }
+
+  /* ---------- process ---------- */
+  .process{ background:var(--card); padding:100px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .process-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; margin-top:56px; }
+  @media (max-width:900px){ .process-grid{ grid-template-columns:1fr 1fr; gap:40px 0; } }
+  @media (max-width:560px){ .process-grid{ grid-template-columns:1fr; } }
+
+  .process-line{
+    position:absolute; top:27px; left:12.5%; right:12.5%; height:1px;
+    background:repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 16px);
+    z-index:0;
+  }
+  @media (max-width:900px){ .process-line{ display:none; } }
+  .process-step{ position:relative; z-index:1; padding:0 20px; text-align:left; }
+  .process-num{
+    width:54px; height:54px; border-radius:50%;
+    background:var(--navy); color:var(--brass-light);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk',monospace; font-weight:700; font-size:1.1rem;
+    margin-bottom:20px;
+    box-shadow:0 0 0 6px var(--card);
+  }
+  .process-step h4{ font-size:1.12rem; margin-bottom:8px; }
+  .process-step p{ font-size:.9rem; }
+
+  /* ---------- coverage ---------- */
+  .coverage{ padding:100px 0; overflow:hidden; }
+  .coverage-inner{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  @media (max-width:900px){ .coverage-inner{ grid-template-columns:1fr; } }
+  .chip-cloud{ display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+  .chip{
+    font-size:.85rem; font-weight:500; padding:9px 15px; border-radius:100px;
+    background:var(--card); border:1px solid var(--line); color:var(--ink);
+    transition:all .25s ease;
+  }
+  .chip:hover{ background:var(--navy); color:#fff; border-color:var(--navy); transform:translateY(-2px); }
+
+  .radar-wrap{ display:flex; align-items:center; justify-content:center; position:relative; }
+  .radar-ring{ fill:none; stroke:var(--brass); opacity:.35; }
+  .radar-ring.spin1{ animation:radarpulse 3s ease-in-out infinite; }
+  .radar-ring.spin2{ animation:radarpulse 3s ease-in-out infinite 1s; }
+  .radar-ring.spin3{ animation:radarpulse 3s ease-in-out infinite 2s; }
+  @keyframes radarpulse{ 0%{ opacity:.5; } 50%{ opacity:.08; } 100%{ opacity:.5; } }
+
+  /* ---------- testimonials ---------- */
+  .testimonials{ background:var(--navy-deep); padding:100px 0; position:relative; overflow:hidden; }
+  .testimonials::before{
+    content:''; position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:46px 46px;
+    mask-image:radial-gradient(circle at 80% 20%, black, transparent 60%);
+  }
+  .testimonials .section-head h2, .testimonials .eyebrow{ color:#fff; }
+  .testimonials .section-head h2{ color:#fff; }
+  .testimonials .section-head p{ color:var(--text-soft-inv); }
+  .t-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; position:relative; z-index:1; }
+  @media (max-width:900px){ .t-grid{ grid-template-columns:1fr; } }
+  .t-card{
+    background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius);
+    padding:28px; transition:transform .35s ease, background .35s ease;
+  }
+  .t-card:hover{ transform:translateY(-5px); background:rgba(255,255,255,.07); }
+  .stars{ display:flex; gap:3px; margin-bottom:16px; }
+  .stars svg{ width:15px; height:15px; color:var(--brass-light); }
+  .t-card p{ color:#E7ECEF; font-size:.95rem; }
+  .t-name{ margin-top:20px; display:flex; align-items:center; gap:12px; }
+  .t-avatar{ width:38px; height:38px; border-radius:50%; background:var(--brass); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',monospace; font-weight:700; color:var(--navy-deep); font-size:.85rem; }
+  .t-name .who b{ display:block; color:#fff; font-size:.88rem; }
+  .t-name .who span{ color:var(--text-soft-inv); font-size:.78rem; }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:linear-gradient(120deg, var(--brass) 0%, #C88C33 60%, var(--brick) 130%);
+    padding:74px 0; text-align:center;
+  }
+  .cta-band h2{ color:var(--navy-deep); font-size:clamp(1.8rem,3vw,2.5rem); }
+  .cta-band p{ color:rgba(13,31,53,.75); margin-top:14px; font-size:1.05rem; max-width:520px; margin-left:auto; margin-right:auto; }
+  .cta-band .hero-actions{ justify-content:center; margin-top:30px; }
+  .cta-band .btn-primary{ background:var(--navy-deep); color:#fff; }
+  .cta-band .btn-primary:hover{ background:var(--navy); }
+  .cta-band .btn-ghost{ border-color:rgba(13,31,53,.35); color:var(--navy-deep); }
+  .cta-band .btn-ghost:hover{ background:rgba(13,31,53,.08); }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--navy-deep); color:var(--text-soft-inv); padding:70px 0 30px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,.1); }
+  @media (max-width:820px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
+  footer h5{ font-family:'Space Grotesk',monospace; text-transform:uppercase; letter-spacing:.1em; font-size:.72rem; color:var(--brass-light); margin-bottom:16px; }
+  footer .brand-text .name{ color:#fff; }
+  footer .foot-desc{ margin-top:14px; font-size:.88rem; max-width:280px; color:var(--text-soft-inv); }
+  footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; }
+  footer ul li a{ font-size:.88rem; color:var(--text-soft-inv); transition:color .2s ease; }
+  footer ul li a:hover{ color:#fff; }
+  .foot-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:26px; flex-wrap:wrap; gap:14px; }
+  .foot-bottom p{ font-size:.8rem; color:#7C8B96; }
+
+  /* generic icon sizing */
+  .icon{ width:22px; height:22px; }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header id="siteHeader">
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="brand">
+        <svg class="brand-mark" viewBox="0 0 44 44" fill="none">
+          <rect x="1" y="1" width="42" height="42" rx="11" fill="#193A5C"/>
+          <path d="M13 27L22 13L31 27" stroke="#E0AE5C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="22" cy="24" r="2.6" fill="#E0AE5C"/>
+        </svg>
+        <span class="brand-text">
+          <span class="name">Yabi-T</span>
+          <span class="sub">Services LLC</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#coverage">Service area</a>
+        <a href="#testimonials">Reviews</a>
+      </div>
+      <a href="tel:+15712775403" class="nav-cta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (571) 277-5403
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="reveal in" id="heroText">
+      <span class="hero-eyebrow"><span class="dot"></span> Serving Washington DC · MD · VA</span>
+      <h1>Your DC home,<br>handled <em>correctly</em>.</h1>
+      <p class="lede">From a crooked TV mount to a full smart-home rewire — Yabi-T Services LLC sends one licensed pro who shows up on time, brings the right tools, and gets it right the first time.</p>
+      <div class="hero-actions">
+        <a href="tel:+15712775403" class="btn btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call (571) 277-5403
+        </a>
+        <a href="#services" class="btn btn-ghost">See all services</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5.2 3.6 9.6 9 11 5.4-1.4 9-5.8 9-11V6l-9-4z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Licensed &amp; insured</span>
+        </div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Same-week scheduling</span>
+        </div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span>Upfront, flat pricing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="diagram-wrap reveal reveal-delay-2 in">
+      <div class="diagram-card">
+        <div class="diagram-label"><span>Work order</span><b>#YT-DC-2026</b></div>
+        <svg viewBox="0 0 420 380" width="100%" height="auto">
+          <!-- house outline -->
+          <path class="blueprint-line d1" d="M60 210 L60 340 L360 340 L360 210" stroke="#E0AE5C" stroke-width="2" fill="none"/>
+          <path class="blueprint-line d1" d="M40 210 L210 90 L380 210" stroke="#E0AE5C" stroke-width="2" fill="none"/>
+          <!-- door -->
+          <path class="blueprint-line d2" d="M190 340 L190 270 L235 270 L235 340" stroke="#7FA0BE" stroke-width="1.6" fill="none"/>
+          <!-- windows -->
+          <rect class="blueprint-line d2" x="95" y="255" width="42" height="42" stroke="#7FA0BE" stroke-width="1.6" fill="none"/>
+          <rect class="blueprint-line d2" x="288" y="255" width="42" height="42" stroke="#7FA0BE" stroke-width="1.6" fill="none"/>
+          <!-- callout lines -->
+          <path class="blueprint-line d3" d="M137 265 L60 200" stroke="#4A6683" stroke-width="1.2" fill="none"/>
+          <path class="blueprint-line d3" d="M310 265 L390 210" stroke="#4A6683" stroke-width="1.2" fill="none"/>
+          <path class="blueprint-line d4" d="M212 260 L212 175" stroke="#4A6683" stroke-width="1.2" fill="none"/>
+          <path class="blueprint-line d4" d="M110 300 L20 300" stroke="#4A6683" stroke-width="1.2" fill="none"/>
+
+          <!-- callout dots + labels -->
+          <g class="blueprint-dot bp-dot1">
+            <circle cx="60" cy="200" r="4" fill="#E0AE5C"/>
+            <circle class="pulse-ring" cx="60" cy="200" r="4" fill="none" stroke="#E0AE5C" stroke-width="1.4"/>
+            <text x="14" y="185" fill="#C9D6E1" font-size="10" font-family="Space Grotesk">TV MOUNT</text>
+          </g>
+          <g class="blueprint-dot bp-dot2">
+            <circle cx="390" cy="210" r="4" fill="#E0AE5C"/>
+            <circle class="pulse-ring" cx="390" cy="210" r="4" fill="none" stroke="#E0AE5C" stroke-width="1.4"/>
+            <text x="345" y="195" fill="#C9D6E1" font-size="10" font-family="Space Grotesk">CEIL. FAN</text>
+          </g>
+          <g class="blueprint-dot bp-dot3">
+            <circle cx="212" cy="172" r="4" fill="#E0AE5C"/>
+            <circle class="pulse-ring" cx="212" cy="172" r="4" fill="none" stroke="#E0AE5C" stroke-width="1.4"/>
+            <text x="222" y="165" fill="#C9D6E1" font-size="10" font-family="Space Grotesk">SMART CAM</text>
+          </g>
+          <g class="blueprint-dot bp-dot4">
+            <circle cx="20" cy="300" r="4" fill="#E0AE5C"/>
+            <circle class="pulse-ring" cx="20" cy="300" r="4" fill="none" stroke="#E0AE5C" stroke-width="1.4"/>
+            <text x="-58" y="305" fill="#C9D6E1" font-size="10" font-family="Space Grotesk">FAUCET</text>
+          </g>
+        </svg>
+        <div class="diagram-label" style="margin-top:6px;"><span>Status</span><b style="color:#7FE3A0;">Scheduled — DC Metro</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST STRIP ================= -->
+<div class="trust-strip">
+  <div class="wrap">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 6v6c0 5.2 3.6 9.6 9 11 5.4-1.4 9-5.8 9-11V6l-9-4z"/></svg>
+      Licensed, bonded &amp; insured
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a2 2 0 0 1-3.2 2.4L3 14"/></svg>
+      One pro, start to finish
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+      Workmanship guaranteed
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+      DC · Maryland · Virginia
+    </div>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we handle</span>
+      <h2>Six trades. One number to call.</h2>
+      <p>Every job below is done by a Yabi-T pro — not a subcontractor pulled off a list. Tell us the job, we tell you the price, we show up and finish it.</p>
+    </div>
+
+    <div class="service-grid">
+
+      <!-- General Mounting -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-photo">
+          <img src="https://images.pexels.com/photos/6020432/pexels-photo-6020432.jpeg?cs=srgb" alt="Flat screen TV mounted above a wooden console in a styled living room">
+          <div class="service-tag">
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
+            </span>
+            <span class="service-title">General Mounting</span>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Anything that needs to hang straight and stay put — studs found, cables hidden, walls left clean.</p>
+          <div class="pill-row">
+            <span class="pill">Blinds</span><span class="pill">Frames</span><span class="pill">TV mounts</span>
+            <span class="pill">Shelves</span><span class="pill">Cabinets</span><span class="pill">Projectors</span><span class="pill">Sound systems</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Appliance Repair -->
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-photo">
+          <img src="https://images.pexels.com/photos/34734504/pexels-photo-34734504.jpeg?cs=srgb" alt="Technician in blue uniform repairing a home appliance">
+          <div class="service-tag">
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h.01M9 12h.01"/><circle cx="15" cy="9" r="1.6"/></svg>
+            </span>
+            <span class="service-title">Appliance Repair &amp; Install</span>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>New unit delivered, or an old one acting up — we hook it up, level it, and test every cycle before we leave.</p>
+          <div class="pill-row">
+            <span class="pill">Refrigerators</span><span class="pill">Microwaves</span><span class="pill">Dishwashers</span>
+            <span class="pill">Garbage disposals</span><span class="pill">Ice makers</span><span class="pill">Washer &amp; dryer</span><span class="pill">Stoves</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Electrical -->
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-photo">
+          <img src="https://images.pexels.com/photos/20500461/pexels-photo-20500461.jpeg?cs=srgb" alt="Electrician on a ladder working with cables"/>
+          <div class="service-tag">
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+            </span>
+            <span class="service-title">Electrical Help</span>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>From a swapped outlet to a full lighting plan, wired to code and left tidy behind the wall plate.</p>
+          <div class="pill-row">
+            <span class="pill">Light fixtures</span><span class="pill">Ceiling fans</span><span class="pill">Smoke detectors</span>
+            <span class="pill">Chandeliers</span><span class="pill">Pendant lights</span><span class="pill">Sconces</span><span class="pill">Motion lights</span>
+            <span class="pill">Smart WiFi devices</span><span class="pill">Switches</span><span class="pill">Outlets</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plumbing -->
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-photo">
+          <img src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?cs=srgb" alt="Close-up of a plumber's hands installing steel pipe fittings"/>
+          <div class="service-tag">
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M8 6h8l2 4v3a4 4 0 0 1-8 0v-1a4 4 0 0 1-8 0v-2l6-4z"/></svg>
+            </span>
+            <span class="service-title">Plumbing Help</span>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Faucets, showerheads, and fixtures swapped without the drama of a full renovation crew.</p>
+          <div class="pill-row">
+            <span class="pill">Kitchen faucets</span><span class="pill">Bathroom sink faucets</span>
+            <span class="pill">Shower heads</span><span class="pill">Toilet seat bidets</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smart Home -->
+      <div class="service-card reveal reveal-delay-5">
+        <div class="service-photo">
+          <img src="https://images.pexels.com/photos/30932198/pexels-photo-30932198.jpeg?cs=srgb" alt="Outdoor security camera mounted on a concrete wall"/>
+          <div class="service-tag">
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/><circle cx="12" cy="14.5" r="1.6"/></svg>
+            </span>
+            <span class="service-title">Smart Home Install</span>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Cameras, locks, and thermostats mounted, wired, and paired to your phone before we pack up.</p>
+          <div class="pill-row">
+            <span class="pill">Smart alarm systems</span><span class="pill">Doorbells</span>
+            <span class="pill">Indoor &amp; outdoor cameras</span><span class="pill">Electronic locks</span>
+            <span class="pill">Thermostats</span><span class="pill">Garage door openers</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Furniture Assembly -->
+      <div class="service-card reveal reveal-delay-6">
+        <div class="service-photo">
+          <img src="https://images.pexels.com/photos/4554427/pexels-photo-4554427.jpeg?cs=srgb" alt="A woman using a screwdriver while assembling furniture indoors"/>
+          <div class="service-tag">
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </span>
+            <span class="service-title">Furniture Assembly</span>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Flat-pack boxes turned into finished rooms — every bolt torqued, every drawer aligned.</p>
+          <div class="pill-row">
+            <span class="pill">Desks</span><span class="pill">Dressers</span><span class="pill">Bed frames</span>
+            <span class="pill">Dining tables</span><span class="pill">Entertainment centers</span><span class="pill">TV stands</span>
+            <span class="pill">Bookshelves</span><span class="pill">Sofas</span><span class="pill">Patio furniture sets</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Four steps, no surprises.</h2>
+      <p>The same sequence for a single blind or a whole-house smart-home install.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-line"></div>
+
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-num">01</div>
+        <h4>Tell us the job</h4>
+        <p>Call, text, or send photos. We quote a flat price before anyone drives out.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-num">02</div>
+        <h4>Pick a window</h4>
+        <p>Same-week slots across DC, Maryland, and Virginia — morning or evening.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-num">03</div>
+        <h4>We get to work</h4>
+        <p>One licensed pro arrives with the right hardware and drop cloths, ready to go.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-num">04</div>
+        <h4>Walkthrough &amp; done</h4>
+        <p>We test it with you, clean up, and back it with our workmanship guarantee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COVERAGE ================= -->
+<section class="coverage" id="coverage">
+  <div class="wrap coverage-inner">
+    <div class="reveal">
+      <span class="eyebrow">Where we work</span>
+      <h2 style="font-size:clamp(1.9rem,3vw,2.6rem); margin-top:12px; line-height:1.14;">Rooted in DC,<br>reaching the metro.</h2>
+      <p style="margin-top:16px; font-size:1.03rem;">Yabi-T Services LLC is based in Washington DC and runs crews across the district and into the close-in Maryland and Virginia suburbs — the rowhouses of Capitol Hill to the high-rises of Arlington.</p>
+      <div class="chip-cloud">
+        <span class="chip">Capitol Hill</span><span class="chip">Georgetown</span><span class="chip">Dupont Circle</span>
+        <span class="chip">Navy Yard</span><span class="chip">Columbia Heights</span><span class="chip">Adams Morgan</span>
+        <span class="chip">Petworth</span><span class="chip">Bethesda, MD</span><span class="chip">Silver Spring, MD</span>
+        <span class="chip">Arlington, VA</span><span class="chip">Alexandria, VA</span>
+      </div>
+    </div>
+    <div class="radar-wrap reveal reveal-delay-2">
+      <svg viewBox="0 0 340 340" width="100%" height="auto" style="max-width:400px;">
+        <circle class="radar-ring spin3" cx="170" cy="170" r="150" stroke-width="1"/>
+        <circle class="radar-ring spin2" cx="170" cy="170" r="105" stroke-width="1"/>
+        <circle class="radar-ring spin1" cx="170" cy="170" r="60" stroke-width="1"/>
+        <circle cx="170" cy="170" r="150" fill="none" stroke="#DEE5E2" stroke-width="1"/>
+        <circle cx="170" cy="170" r="105" fill="none" stroke="#DEE5E2" stroke-width="1"/>
+        <circle cx="170" cy="170" r="60" fill="none" stroke="#DEE5E2" stroke-width="1"/>
+        <!-- capitol dome mark -->
+        <g transform="translate(170,170)">
+          <circle r="7" fill="#B1432A"/>
+          <circle r="7" fill="none" stroke="#B1432A" stroke-width="1.4">
+            <animate attributeName="r" values="7;26;7" dur="2.6s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values=".8;0;.8" dur="2.6s" repeatCount="indefinite"/>
+          </circle>
+          <path d="M-9 6 L-9 -2 L0 -12 L9 -2 L9 6" fill="none" stroke="#193A5C" stroke-width="1.6" stroke-linejoin="round"/>
+        </g>
+        <text x="170" y="30" text-anchor="middle" fill="#5B6B72" font-size="10" font-family="Space Grotesk">DC METRO SERVICE RADIUS</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">From the neighborhood</span>
+      <h2>Reviews from DC homeowners.</h2>
+      <p>A few words from the rowhouses, condos, and colonials we've worked in this year.</p>
+    </div>
+    <div class="t-grid">
+      <div class="t-card reveal reveal-delay-1">
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>"Mounted our TV over the fireplace on a 100-year-old Capitol Hill wall and hid every cable in the process. Cleaner than I imagined possible."</p>
+        <div class="t-name">
+          <div class="t-avatar">RM</div>
+          <div class="who"><b>Renee M.</b><span>Capitol Hill, DC</span></div>
+        </div>
+      </div>
+      <div class="t-card reveal reveal-delay-2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>"Had four smart cameras, a video doorbell, and a new thermostat all installed and paired to the app in one afternoon. Genuinely painless."</p>
+        <div class="t-name">
+          <div class="t-avatar">DA</div>
+          <div class="who"><b>David A.</b><span>Arlington, VA</span></div>
+        </div>
+      </div>
+      <div class="t-card reveal reveal-delay-3">
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>"Six boxes of IKEA furniture for a nursery, built and leveled in under three hours. They even hauled the cardboard away."</p>
+        <div class="t-name">
+          <div class="t-avatar">JK</div>
+          <div class="who"><b>Jenna K.</b><span>Bethesda, MD</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BAND ================= -->
+<section class="cta-band">
+  <div class="wrap">
+    <span class="eyebrow" style="color:rgba(13,31,53,.65);">Ready when you are</span>
+    <h2 style="margin-top:12px;">Get a flat price in minutes.</h2>
+    <p>Call, text, or send a few photos of the job — we'll quote it before we ever knock on your door.</p>
+    <div class="hero-actions">
+      <a href="tel:+15712775403" class="btn btn-primary">Call (571) 277-5403</a>
+      <a href="sms:+15712775403" class="btn btn-ghost">Text us a photo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="brand">
+          <svg class="brand-mark" viewBox="0 0 44 44" fill="none">
+            <rect x="1" y="1" width="42" height="42" rx="11" fill="#E0AE5C"/>
+            <path d="M13 27L22 13L31 27" stroke="#0D1F35" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="22" cy="24" r="2.6" fill="#0D1F35"/>
+          </svg>
+          <span class="brand-text">
+            <span class="name">Yabi-T</span>
+            <span class="sub">Services LLC</span>
+          </span>
+        </a>
+        <p class="foot-desc">Licensed handyman, electrical, plumbing, smart home, and furniture assembly services across the Washington DC metro area.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">General mounting</a></li>
+          <li><a href="#services">Appliance repair</a></li>
+          <li><a href="#services">Electrical help</a></li>
+          <li><a href="#services">Plumbing help</a></li>
+          <li><a href="#services">Smart home install</a></li>
+          <li><a href="#services">Furniture assembly</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#process">How it works</a></li>
+          <li><a href="#coverage">Service area</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="tel:+15712775403">Get a quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+15712775403">(571) 277-5403</a></li>
+          <li><a href="mailto:hello@yabitservices.com">hello@yabitservices.com</a></li>
+          <li><span style="font-size:.88rem;">1301 U St NW, Washington, DC 20009</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2026 Yabi-T Services LLC. All rights reserved.</p>
+      <p>Licensed &amp; insured in DC, MD &amp; VA.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky header shrink
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (!el.classList.contains('in')) io.observe(el);
+  });
+</script>
+
+</body>
+</html>
